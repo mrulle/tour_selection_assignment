@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "r4Qt0ezYbZTZpJSbywbEgePr/U86qqyObB2gHUbwVlf1CWquZjJNf8zsc3h8vzT8KEFnyIPr4A3cATzNVrZrmQ==",
+  "success": true,
+  "projectFilePath": "D:\\dev\\bachelor\\integration\\TourSelectionConsumer\\TourSelectionConsumer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mrull\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
+    "C:\\Users\\mrull\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\mrull\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
