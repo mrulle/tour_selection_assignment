@@ -7,7 +7,7 @@ public class ConsumerEmailService {
     IModel _channel;
     static readonly string routingKey = "tour.booked";
 
-    public ConsumerEmailService(IModel channel) {
+    public ConsumerEmailService(IModel channel, ) {
         _channel = channel;
     }
 

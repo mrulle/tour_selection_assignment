@@ -21,9 +21,7 @@ public class TourSelectionController : ControllerBase
     public TourSelectionController(ILogger<TourSelectionController> logger, IRabbitConnection connection)
     {
         _logger = logger;
-        // since it's stateless, this is a really bad idea
-        channel = connection.createChannel();
-        channel.ExchangeDeclare(exchange: "topic_logs", type: ExchangeType.Topic);
+        channel = connection.getChannel();
     }
 
     [HttpPost]
@@ -37,6 +35,7 @@ public class TourSelectionController : ControllerBase
                                 routingKey: routingKey,
                                 basicProperties: null,
                                 body: body);
+            
             return Ok(200);
         }
         catch (Exception e) {

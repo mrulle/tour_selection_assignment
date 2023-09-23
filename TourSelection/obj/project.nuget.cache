@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rbhqzXE6gvjZJZgsreYqcH8xYD4j9r1+TqB24rmBXYSJCLTaATi2FpAYozS0t9EhpVqgUC9VvVLpWedjWQOEPQ==",
+  "dgSpecHash": "GeRMBjaiAyJewba0aKrTzGxI/pv98gMtyNCcVud3bQuAMRt33NzSpUM6qEXQuRfbZWB1d3hIkIgrifB2WbDeaA==",
   "success": true,
-  "projectFilePath": "D:\\dev\\bachelor\\integration\\TourSelection\\TourSelection.csproj",
+  "projectFilePath": "C:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\TourSelection.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mrull\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\mrull\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

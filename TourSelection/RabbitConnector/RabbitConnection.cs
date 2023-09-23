@@ -6,6 +6,7 @@ public class RabbitConnection : IRabbitConnection
     private int port = 6000;
     private ConnectionFactory _factory;
     private IConnection connection;
+    private static IModel channel;
     public RabbitConnection() {
         _factory = new ConnectionFactory{ HostName = host, Port = port };
         connection = _factory.CreateConnection();
@@ -13,6 +14,16 @@ public class RabbitConnection : IRabbitConnection
 
     public IModel createChannel()
     {
-        return connection.CreateModel();
+        channel = connection.CreateModel();
+        channel.ExchangeDeclare(exchange: "topic_logs", type: ExchangeType.Topic);
+        return channel;
+    }
+
+    public IModel getChannel() {
+        if (channel is not null) {
+            return channel;
+        }
+        channel = createChannel();
+        return channel;
     }
 }

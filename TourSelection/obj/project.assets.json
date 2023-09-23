@@ -571,27 +571,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mrull\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\mrull\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dev\\bachelor\\integration\\TourSelection\\TourSelection.csproj",
+      "projectUniqueName": "C:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\TourSelection.csproj",
       "projectName": "TourSelection",
-      "projectPath": "D:\\dev\\bachelor\\integration\\TourSelection\\TourSelection.csproj",
+      "projectPath": "C:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\TourSelection.csproj",
       "packagesPath": "C:\\Users\\mrull\\.nuget\\packages\\",
-      "outputPath": "D:\\dev\\bachelor\\integration\\TourSelection\\obj\\",
+      "outputPath": "C:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\mrull\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -648,7 +641,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
