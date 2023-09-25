@@ -41,12 +41,17 @@ public class RabbitConnection : IRabbitConnection
         }
         return createdConnection;
     }
-    public IModel CreateChannel(string exchange, string type)
-    {
+    public IModel CreateChannel(string exchange, string exchangeType) {
+    //TODO: make this use the input parameter exchangeType
+/*
+    "direct", "fanout", "headers", "topic"
+
+*/
+    
         if (isConnected) {
             _logger.LogInformation("createChannel(): is connected");
             channel = connection.CreateModel();
-            channel.ExchangeDeclare(exchange: "topic_logs", type: ExchangeType.Topic);
+            channel.ExchangeDeclare(exchange: exchange, type: exchangeType);
             return channel;
         }
         else {

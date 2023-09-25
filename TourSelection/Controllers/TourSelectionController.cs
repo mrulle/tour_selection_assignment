@@ -13,7 +13,7 @@ public class TourSelectionController : ControllerBase
         "booked", "cancelled"
     };
     private IModel channel;
-    private IRabbitConnection _connection;
+    private IRabbitConnection _connection; // "direct", "fanout", "headers", "topic"
 
     private readonly ILogger<TourSelectionController> _logger;
 
@@ -27,8 +27,7 @@ public class TourSelectionController : ControllerBase
     public IActionResult Post([FromBody] TourActionModel model)
     {
         string exchange = "topic_logs";
-        string exchangeType = "";
-        
+        string exchangeType = "topic";
         string routingKey = "";
         string message = "";
 
