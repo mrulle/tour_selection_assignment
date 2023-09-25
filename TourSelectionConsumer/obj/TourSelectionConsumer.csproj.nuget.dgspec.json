@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dev\\bachelor\\integration\\TourSelectionConsumer\\TourSelectionConsumer.csproj": {}
+    "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelectionConsumer\\TourSelectionConsumer.csproj": {}
   },
   "projects": {
-    "D:\\dev\\bachelor\\integration\\TourSelectionConsumer\\TourSelectionConsumer.csproj": {
+    "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelectionConsumer\\TourSelectionConsumer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dev\\bachelor\\integration\\TourSelectionConsumer\\TourSelectionConsumer.csproj",
+        "projectUniqueName": "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelectionConsumer\\TourSelectionConsumer.csproj",
         "projectName": "TourSelectionConsumer",
-        "projectPath": "D:\\dev\\bachelor\\integration\\TourSelectionConsumer\\TourSelectionConsumer.csproj",
+        "projectPath": "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelectionConsumer\\TourSelectionConsumer.csproj",
         "packagesPath": "C:\\Users\\mrull\\.nuget\\packages\\",
-        "outputPath": "D:\\dev\\bachelor\\integration\\TourSelectionConsumer\\obj\\",
+        "outputPath": "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelectionConsumer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
