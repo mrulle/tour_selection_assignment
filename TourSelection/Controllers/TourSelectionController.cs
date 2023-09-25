@@ -29,18 +29,22 @@ public class TourSelectionController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] TourActionModel model)
     {
+        var routingKey = "";
+        var message = "";
+
         try {
-            var routingKey = "tour." + model.TourAction;
-            string message = JsonSerializer.Serialize(model);
+            routingKey = "tour." + model.TourAction;
+            message = JsonSerializer.Serialize(model);
             var body = Encoding.UTF8.GetBytes(message);
             channel.BasicPublish(exchange: "topic_logs",
                                 routingKey: routingKey,
                                 basicProperties: null,
                                 body: body);
-            return Ok(200);
+            return Ok("Successfully sent: " + message);
         }
         catch (Exception e) {
-            return BadRequest();
+            _logger.LogCritical("No connection to RabbitMQ for: " + message);
+            return Ok("Sending failed for: " + message);
         }
     }
 }

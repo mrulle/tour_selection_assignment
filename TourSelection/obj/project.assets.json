@@ -578,11 +578,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dev\\bachelor\\integration\\TourSelection\\TourSelection.csproj",
+      "projectUniqueName": "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\TourSelection.csproj",
       "projectName": "TourSelection",
-      "projectPath": "D:\\dev\\bachelor\\integration\\TourSelection\\TourSelection.csproj",
+      "projectPath": "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\TourSelection.csproj",
       "packagesPath": "C:\\Users\\mrull\\.nuget\\packages\\",
-      "outputPath": "D:\\dev\\bachelor\\integration\\TourSelection\\obj\\",
+      "outputPath": "D:\\dev\\bachelor\\integration\\tour_selection_assignment\\TourSelection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
