@@ -10,6 +10,7 @@ public class RabbitConnection : IRabbitConnection
     private IConnection connection;
 
     private bool isConnected = false;
+    private static IModel channel;
     public RabbitConnection() {
         _factory = new ConnectionFactory { HostName = host, Port = port };
         OnConnectionLost();
@@ -45,5 +46,16 @@ public class RabbitConnection : IRabbitConnection
         isConnected = false;
         Thread t = new Thread(createConnection);
         t.Start();
+        channel = connection.CreateModel();
+        channel.ExchangeDeclare(exchange: "topic_logs", type: ExchangeType.Topic);
+        
+    }
+
+    public IModel getChannel() {
+        if (channel is not null) {
+            return channel;
+        }
+        channel = createChannel();
+        return channel;
     }
 }
