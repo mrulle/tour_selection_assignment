@@ -1,5 +1,5 @@
 using RabbitMQ.Client;
 
 public interface IRabbitConnection {
-    IModel GetChannel();
+    bool Send(string exchange, string exchangeType, string routingKey, string message);
 }

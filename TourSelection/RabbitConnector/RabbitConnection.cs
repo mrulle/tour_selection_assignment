@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using RabbitMQ.Client;
+using System.Text;
 
 public class RabbitConnection : IRabbitConnection
 {
@@ -10,7 +11,8 @@ public class RabbitConnection : IRabbitConnection
     private IConnection connection;
 
     private bool isConnected = false;
-    private static IModel channel;
+    private static IModel channel = null;
+    private Dictionary<string, IModel> channelDict = new Dictionary<string, IModel>();
     private readonly ILogger<RabbitConnection> _logger;
 
     public RabbitConnection(ILogger<RabbitConnection> logger) {
@@ -32,14 +34,14 @@ public class RabbitConnection : IRabbitConnection
             }
             catch (Exception e)
             {
-                _logger.LogInformation(e.Message);
                 _logger.LogInformation("createConnection(): Connection attempt to RabbitMQ at " + host + ":" + port + " failed");
+                _logger.LogInformation(e.Message);
             }
             Thread.Sleep(1500);
         }
         return createdConnection;
     }
-    public IModel CreateChannel()
+    public IModel CreateChannel(string exchange, string type)
     {
         if (isConnected) {
             _logger.LogInformation("createChannel(): is connected");
@@ -53,23 +55,49 @@ public class RabbitConnection : IRabbitConnection
         }
     }
 
-
+// exchange, type
 
     private void OnConnectionLost(object? sender, ShutdownEventArgs reason) {
         isConnected = false;
         connection = CreateConnection();
-        channel = CreateChannel();
     }
 
-    public IModel GetChannel() {
-        if (channel is not null && connection is not null) {
-            _logger.LogInformation("getChannel(): channel exists");
-            return channel;
+    public IModel GetChannel(string exchange, string exchangeType) {
+        string channelKey = CreateChannelKey(exchange, exchangeType);
+
+
+        if (connection is null) {
+            connection = CreateConnection();
+            connection.ConnectionShutdown += OnConnectionLost;
         }
-        connection = CreateConnection();
-        connection.ConnectionShutdown += OnConnectionLost;
-        channel = CreateChannel();
-        _logger.LogInformation("getChannel(): channel created");
-        return channel;
+
+        if (channelDict.ContainsKey(channelKey)) {
+            _logger.LogInformation("getChannel(): channel exists");
+            return channelDict[channelKey];
+        }
+
+        else {
+            IModel createdChannel = CreateChannel(exchange, exchangeType);
+            channelDict.Add(channelKey, createdChannel);
+            _logger.LogInformation("getChannel(): channel created");
+            return channelDict[channelKey];
+        }
+    }
+
+    public bool Send(string exchange, string exchangeType, string routingKey, string message) {
+        bool result = false;
+        string channelKey = CreateChannelKey(exchange, exchangeType);
+        IModel channel = GetChannel(exchange, exchangeType);
+        var body = Encoding.UTF8.GetBytes(message);
+        channel.BasicPublish(exchange: exchange,
+                                routingKey: routingKey,
+                                basicProperties: null,
+                                body: body);
+        
+        return result;
+    }
+
+    private string CreateChannelKey(string exchange, string exchangeType) {
+        return exchange + "+" + exchangeType;
     }
 }

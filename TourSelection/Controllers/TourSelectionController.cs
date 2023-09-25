@@ -1,9 +1,6 @@
-using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using System.Text.Json;
-using System.Text;
-using System.Runtime.CompilerServices;
 
 namespace TourSelection.Controllers;
 
@@ -29,18 +26,18 @@ public class TourSelectionController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] TourActionModel model)
     {
-        channel = _connection.GetChannel();
-        var routingKey = "";
-        var message = "";
+        string exchange = "topic_logs";
+        string exchangeType = "";
+        
+        string routingKey = "";
+        string message = "";
 
         try {
+            message = JsonSerializer.Serialize(model);
             routingKey = "tour." + model.TourAction;
             _logger.LogInformation("trying to send");
-            var body = Encoding.UTF8.GetBytes(model.ToString());
-            channel.BasicPublish(exchange: "topic_logs",
-                                routingKey: routingKey,
-                                basicProperties: null,
-                                body: body);
+            _connection.Send(exchange, exchangeType, routingKey, message);
+            
             return Ok("Successfully sent: " + message);
         }
         catch (Exception e) {
