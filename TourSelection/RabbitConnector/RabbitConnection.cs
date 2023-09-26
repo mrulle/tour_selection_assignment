@@ -43,13 +43,9 @@ public class RabbitConnection : IRabbitConnection
     }
     public IModel CreateChannel(string exchange, string exchangeType) {
     //TODO: make this use the input parameter exchangeType
-/*
-    "direct", "fanout", "headers", "topic"
-
-*/
-    
+    // "direct", "fanout", "headers", "topic"
         if (isConnected) {
-            _logger.LogInformation("createChannel(): is connected");
+            _logger.LogInformation("RabbitConnection.createChannel(string exchange, string exchangeType): is connected");
             channel = connection.CreateModel();
             channel.ExchangeDeclare(exchange: exchange, type: exchangeType);
             return channel;
